@@ -1,4 +1,4 @@
-# Entra-ID-Intune-MDM-Lab
+# Entra ID & Intune MDM Lab
 
 ## Objective
 Provisioned a Microsoft Entra ID tenant and Intune MDM environment to simulate
@@ -9,9 +9,9 @@ onboard, secure, and enforce compliance on end-user devices.
 ## Environment
 - Microsoft Entra ID (Entra ID P2 trial)
 - Microsoft Intune (MDM)
-- 1x enrolled iPhone
+- 1x enrolled iPhone 11
 
-- ## What I did
+## What I did
 
 ### 1. Provisioned the tenant and created test identities
 Signed up for a Microsoft Intune trial, which provisioned a new Entra ID
@@ -56,30 +56,37 @@ management for the tenant.
 ![Apple MDM Push Certificate setup](screenshots/11-apple-mdm-push-cert-setup.png)
 
 ### 6. Enrolled a test device
-Enrolled a personal iPhone into Intune via the Company Portal app.
+Enrolled a personal iPhone into Intune via the Company Portal app —
+downloaded and installed the management profile, then confirmed successful
+registration.
 
-![Device enrolled in Intune](screenshots/12-device-enrolled.png)
+![Downloading management profile](screenshots/12-enrollment-download-profile.png)
+![Installing management profile](screenshots/13-enrollment-install-profile.png)
+![Enrollment success](screenshots/14-enrollment-success-registered.png)
+![Device enrolled in Intune](screenshots/15-device-enrolled.png)
 
 ### 7. Built and assigned a device compliance policy
 Created an iOS compliance policy blocking jailbroken devices and enforcing
-a minimum OS version, assigned to the `MDM-Test-Devices` group.
+a minimum OS version (26.5.2), assigned to the `MDM-Test-Devices` group.
 
-![Compliance policy settings](screenshots/13-compliance-policy-settings.png)
-![Compliance policy assignments](screenshots/14-compliance-policy-assignments.png)
-![Compliance policy review and create](screenshots/15-compliance-policy-review-create.png)
+![Compliance policy settings](screenshots/16-compliance-policy-settings.png)
+![Compliance policy assignments](screenshots/17-compliance-policy-assignments.png)
+![Compliance policy review and create](screenshots/18-compliance-policy-review-create.png)
 
 ### 8. Built and assigned a configuration profile
 Created a device restrictions profile enforcing a PIN/passcode requirement
 (minimum length 6, no simple passwords), assigned to the same group.
 
-![Configuration profile - PIN requirement](screenshots/16-configuration-profile-pin.png)
+![Configuration profile - PIN requirement](screenshots/19-configuration-profile-pin.png)
 
 ### 9. Verified device compliance status
-Confirmed the device evaluated against the compliance policy and moved from
-an unevaluated state to **Compliant** after the policies were assigned and
-the device synced.
+The device initially failed the compliance check because it was running an
+OS version below the policy's minimum requirement — confirming the policy
+was actively enforcing, not just configured. After updating, the device
+re-evaluated as compliant.
 
-![Device compliance status - Compliant](screenshots/17-device-compliance-status.png)
+![Compliance check flagging outdated OS](screenshots/20-compliance-check-os-update-required.png)
+![Device compliance status - Compliant](screenshots/21-device-compliance-status.png)
 
 ### 10. Tied Conditional Access to device compliance (Zero Trust)
 Extended the Conditional Access setup with a policy requiring a device to
@@ -87,8 +94,8 @@ be marked compliant before granting access to a target application — linking
 identity (Entra ID) and device posture (Intune) into a single access
 decision.
 
-![Conditional Access - require compliant device](screenshots/18-ca-policy-compliant-device-grant.png)
-![Conditional Access policy details](screenshots/19-ca-policy-compliant-device-details.png)
+![Conditional Access - require compliant device](screenshots/22-ca-policy-compliant-device-grant.png)
+![Conditional Access policy details](screenshots/23-ca-policy-compliant-device-details.png)
 
 ## Key concepts demonstrated
 - Cloud identity administration (Entra ID users, groups, Conditional Access)
@@ -97,8 +104,8 @@ decision.
 - Device compliance policies vs. configuration profiles
 - Zero Trust: gating application access on device compliance, not just user
   identity
-- Verifying policy enforcement end-to-end, not just configuring it (before/after
-  compliance status)
+- Verifying policy enforcement end-to-end — the compliance policy correctly
+  caught a real out-of-date device before it passed
 
 ## Notes
 Built in a Microsoft-provided free trial tenant (Entra ID P2 + Intune) for
