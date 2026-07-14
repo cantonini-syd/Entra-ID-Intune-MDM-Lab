@@ -17,7 +17,7 @@ onboard, secure, and enforce compliance on end-user devices.
 Signed up for a Microsoft Intune trial, which provisioned a new Entra ID
 tenant (`LabCA`) with Entra ID P2 and Intune included.
 
-![Entra tenant overview](screenshots/01-entra-tenant-overview.png)
+![Entra tenant overview](images/01-entra-tenant-overview.png)
 
 Created two test users to simulate a small user base.
 
