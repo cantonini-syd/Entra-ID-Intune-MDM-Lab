@@ -3,13 +3,13 @@
 ## Objective
 Provisioned a Microsoft Entra ID tenant and Intune MDM environment to simulate
 managing corporate identities and device compliance in a modern cloud
-environment — the workflow an IT support / sysadmin role would use to
+environment. The workflow an IT support / sysadmin role would use to
 onboard, secure, and enforce compliance on end-user devices.
 
 ## Environment
 - Microsoft Entra ID (Entra ID P2 trial)
 - Microsoft Intune (MDM)
-- 1x enrolled iPhone 11 (personal ownership, iOS)
+- 1x enrolled iPhone 11
 
 ## What I did
 
@@ -104,11 +104,11 @@ decision.
 - Device compliance policies vs. configuration profiles
 - Zero Trust: gating application access on device compliance, not just user
   identity
-- Verifying policy enforcement end-to-end — the compliance policy correctly
+- Verifying policy enforcement end-to-end, the compliance policy correctly
   caught a real out-of-date device before it passed
 
 ## Notes
 Built in a Microsoft-provided free trial tenant (Entra ID P2 + Intune) for
 skills demonstration purposes. Conditional Access policies were run in
 Report-only mode to validate behavior without risking lockout in a live
-environment — standard practice before enforcing a new policy.
+environment.
