@@ -9,7 +9,7 @@ onboard, secure, and enforce compliance on end-user devices.
 ## Environment
 - Microsoft Entra ID (Entra ID P2 trial)
 - Microsoft Intune (MDM)
-- 1x enrolled iPhone 11
+- 1x enrolled iPhone 11 (personal ownership, iOS)
 
 ## What I did
 
