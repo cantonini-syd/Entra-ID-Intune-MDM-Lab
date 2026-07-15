@@ -28,7 +28,7 @@ Created two test users to simulate a small user base.
 ### 2. Created a security group for targeted policy assignment
 Rather than assigning policies to "All users," created a scoped security
 group (`MDM-Test-Devices`) to control exactly which identities and devices
-the lab policies apply to — standard practice for phased rollouts.
+the lab policies apply to.
 
 ![New group](images/05-new-group-mdm-test-devices.png)
 ![Group overview](images/06-group-overview.png)
@@ -56,8 +56,8 @@ management for the tenant.
 ![Apple MDM Push Certificate setup](images/11-apple-mdm-push-cert-setup.png)
 
 ### 6. Enrolled a test device
-Enrolled a personal iPhone into Intune via the Company Portal app —
-downloaded and installed the management profile, then confirmed successful
+Enrolled a personal iPhone into Intune via the Company Portal app.
+Downloaded and installed the management profile, then confirmed successful
 registration.
 
 ![Downloading management profile](images/12-enrollment-download-profile.png)
@@ -81,8 +81,8 @@ Created a device restrictions profile enforcing a PIN/passcode requirement
 
 ### 9. Verified device compliance status
 The device initially failed the compliance check because it was running an
-OS version below the policy's minimum requirement — confirming the policy
-was actively enforcing, not just configured. After updating, the device
+OS version below the policy's minimum requirement, confirming the policy
+was actively enforcing, not just configured. After updating the device
 re-evaluated as compliant.
 
 ![Compliance check flagging outdated OS](images/20-compliance-check-os-update-required.png)
@@ -90,7 +90,7 @@ re-evaluated as compliant.
 
 ### 10. Tied Conditional Access to device compliance (Zero Trust)
 Extended the Conditional Access setup with a policy requiring a device to
-be marked compliant before granting access to a target application — linking
+be marked compliant before granting access to a target application, linking
 identity (Entra ID) and device posture (Intune) into a single access
 decision.
 
